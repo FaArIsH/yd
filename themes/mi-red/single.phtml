@@ -1,0 +1,72 @@
+<?php $this->start('content');?>
+<?php if (has_videos()) : ?>
+    <div class="row">
+        <div class="col-md-8 col-sm-8">
+            <?php while (videos()) : ?>
+                <div class="single">
+                    <div class="yt-player">
+                        <?php the_player(0, 0, false); ?>
+                    </div>
+                    <div class="video-intro">
+                        <h3 class="heading-single"><span><?php the_title(); ?></span>
+                            <button onclick="toggle()" class="btn btn-toggle" id="toggle">More ⇊</button>
+                        </h3>
+                        <div class="intro-meta">
+                            <span class="channel-details">
+                                <a href="<?php the_channel_permalink(); ?>"><?php the_channel();?></a>
+                            </span>
+                            &middot;
+                            <span class="views"><?=get_views_count()?> views</span>
+                        </div>
+                        <div class="intro-share">
+                            <?php $this->insert('partials/share-buttons'); ?>
+                        </div>
+                        <div class="description" id="desc" style="height:80px">
+                            <?php the_description(); ?>
+                        </div>
+                        <div class="download-btn-area">
+                            <a href="<?php the_download_link(); ?>" class="btn btn-block btn-green">Download/Save</a>
+                        </div>
+                    </div>
+                    <div class="ads ads-single">
+                        <?php adcode_single(); ?>
+                    </div>
+
+                    <?php the_breadcrumbs(); ?>
+                </div>
+            <?php endwhile;?>
+        </div>
+        <div class="col-md-4 col-sm-4">
+            <div class="single-sidebar">
+                <h3 class="heading"><span>You may also like..</span></h3>
+                <?php
+// Note! related_videos() should be called after the single loop
+// otherwise it wont work
+                while (related_videos()) : ?>
+                <?php $this->insert('partials/loop'); ?>
+            <?php endwhile;?>
+
+            <?php $this->insert('partials/tags'); ?>
+        </div>
+    </div>
+</div>
+<?php endif;?>
+<script type="text/javascript">
+    function toggle() {
+        var x = document.getElementById('desc');
+        var btn = document.getElementById('toggle');
+
+        if (x.style.height === '80px') {
+            x.style.height = '100%';
+            btn.innerText = 'Less ⇈';
+        } else {
+            x.style.height = '80px';
+            btn.innerText = 'More ⇊';
+        }
+    }
+</script>
+<?php $this->end(); ?>
+<?php
+// Extends the base template
+$this->extend('base');
+?>

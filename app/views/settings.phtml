@@ -1,0 +1,55 @@
+<?php $this->start('content');?>
+<h3 class="heading"><span>Site Settings</span></h3>
+<div class="dash-container">
+    <?php alert_show('error'); ?>
+    <?php alert_show('success'); ?>
+    <form method="post" action="<?=base_url('dashboard/update/settings')?>">
+        <div class="form-group">
+            <label class="form-label" for="site_name">Site name</label>
+            <input required name="site_name" value="<?php option('site_name'); ?>" class="form-input" type="text" id="site_name" maxlength="80">
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="site_tagline">Site Tagline</label>
+            <input required name="site_tagline" value="<?php option('site_tagline'); ?>" class="form-input" type="text" id="site_tagline" maxlength="80">
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="site_desc">Site Description</label>
+            <textarea required name="site_desc" class="form-input" id="site_desc" maxlength="450"><?php option('site_desc'); ?></textarea>
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="header_scripts">HTML Header Code</label>
+            <textarea placeholder="Code to be executed between <?=filter_html_escape('<head>..</head>')?>" name="header_scripts" class="form-input" id="header_scripts"><?php option('header_scripts'); ?></textarea>
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="api_mode">API Mode <a href="#api-swap-help">(?)</a></label>
+            <select id="api_mode" name="api_mode" class="form-input" required>
+                <option value="1" <?php if (get_option('api_mode') === '1'):?>selected<?php endif;?>>Random API Mode</option>
+                <option value="2" <?php if (get_option('api_mode') === '2'):?>selected<?php endif;?>>24 API / 24 Hour Mode</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="homepage_queries">Homepage Queries</label>
+            <textarea required name="homepage_queries" class="form-input" id="homepage_queries" maxlength="800"><?php option('homepage_queries'); ?></textarea>
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="videos_per_page">Videos Per Page</label>
+            <input name="videos_per_page" value="<?php option('videos_per_page'); ?>" class="form-input" type="number" id="videos_per_page" maxlength="2" min="2" max="99" required>
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="related_videos">Related Videos Count</label>
+            <input name="related_videos" value="<?php option('related_videos', '4'); ?>" class="form-input" type="number" id="related_videos" maxlength="2" min="2" max="99" required>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-blue btn-block" type="submit">Update Settings</button>
+      </div>
+      <?=csrf_get_token_html()?>
+  </form>
+  <div class="toast toast-warning" id="api-swap-help">
+    MiTube has an unique <a href="#api_mode">API swapping mode</a>.
+    If you select 24 API/24 Hour Mode, You will need exactly 24 API Keys. Each API Key will be used for exactly one hour a day.
+    If you select Random API Mode. It will use a random API each time from your added keys.</div>
+</div>
+<?php $this->end();?>
+<?php
+$this->extend('base');
+?>

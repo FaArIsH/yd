@@ -1,0 +1,29 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <?php mi_head(); ?>
+    <link rel="shortcut icon" type="image/x-favicon" href="<?=base_url('favicon.ico')?>">
+    <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/spectre.min.css')?>">
+    <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/admin.css')?>">
+    <link rel="dns-prefetch" href="//ajax.googleapis.com">
+</head>
+<body>
+    <?php
+    //Load SVG sprites
+    $this->insert('partials/svg-sprite');
+    ?>
+    <?php
+    // Load header
+    $this->insert('partials/header');
+    ?>
+    <!-- Page Content -->
+    <div id="page-content" class="">
+        <?php the_breadcrumbs(); ?>
+        <?php $this->section('content');?>
+    </div>
+    <?php
+    // Insert Footer
+    $this->insert('partials/footer');
+    ?>
+</body>
+</html>

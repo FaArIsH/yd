@@ -1,0 +1,331 @@
+/**
+ * Adjust Spectre styles
+ */
+ * {
+  outline: none!important;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background: #fff;
+  color: rgba(51, 51, 51, 0.86);
+  font-family: "Roboto",-apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Oxygen-Sans, Ubuntu, Cantarell, sans-serif;
+  height:100%;
+  min-height: 100%;
+}
+
+.btn:hover, .btn:focus {
+  position: auto!important;
+  box-shadow: none;
+}
+
+a:hover, a:focus {
+  box-shadow: none;
+  text-decoration: none;
+}
+
+#svg-sprite {
+  position: absolute;
+  visibility: hidden;
+  top: -9999999px;
+  z-index: -1;
+}
+
+svg.icon {
+  height: 22px;
+  width: 22px;
+  display: inline-block;
+}
+.resize {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+/**
+ * Toasts
+ */
+ .toast {
+  border-width: 0 0 0 3px;
+  border-radius: 0;
+  padding: .6rem;
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+  background: #fff!important
+}
+.toast a {
+  color: inherit;
+}
+.toast.toast-error {
+  border-color: rgb(223, 25, 37);
+  color: rgb(223, 25, 37);
+}
+.toast.toast-success {
+  border-color: rgb(50, 182, 67);
+  color: rgb(50, 182, 67);
+}
+.toast.toast-warning {
+  color: rgb(138, 107, 29);
+  border-color: rgb(255, 183, 0);
+}
+
+/**
+ * Buttons
+ */
+ .btn-blue {
+  background: rgb(24, 144, 255);
+  color: rgb(255, 255, 255);
+  border-color: rgb(24, 144, 255);
+  padding: 8px 10px;
+  height: auto;
+}
+.btn-blue:focus, .btn-blue:active, .btn-blue:hover {
+  border-color: #333333;
+  background: #333333;
+  color: #fff;
+}
+
+ .btn-white {
+    background: rgb(255, 255, 255);
+    color: rgb(119, 119, 119);
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    font-size: 13px;
+    padding: 2px 15px;
+    border-radius: 3px;
+    height: 26px;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 2px 0px;
+}
+.btn-white:focus, .btn-white:active, .btn-white:hover {
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px;
+  background: inherit;
+  color: inherit;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+.btn-blue-outline {
+  color: #1890FF;
+  border-color: #1890FF;
+  background: #fff;
+}
+
+
+.btn-blue-outline:focus, .btn-blue-outline:active, .btn-blue-outline:hover {
+  background: #1890FF;
+  border-color: #1890FF;
+  color: #fff;
+}
+.adjust-btn {
+  height:36px;padding:8px
+}
+
+#page-content {
+
+}
+
+.wrap-container {
+  margin: 0px auto;
+    max-width: 1028px;
+}
+
+/**
+ * Default Navbar
+ */
+
+.header-wrap {
+  height: 40px;
+}
+
+.header-default{
+    background: rgb(255, 255, 255);
+    padding: 0 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 0px 0px;
+    height: 40px;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999999
+}
+.header-default .logo {
+      margin-top: 4px;
+    display: block;
+    padding: 0px;
+}
+.header-default .logo img {
+  height: 100%;
+  max-width: 100%
+}
+
+.heading {
+        display: block;
+    margin: 0 10px;
+    padding: 11px 12px;
+    border-bottom: 1px solid rgba(221, 221, 221, 0.68);
+    font-size: 1.3em;
+    color: rgba(0, 0, 0, 0.69);
+    font-weight: 400;
+}
+.heading span {
+display: block;
+}
+
+.sub-heading {
+  display: block;
+  margin: 0;
+  padding: 8px 18px;
+  font-size: 1em;
+  color: rgba(0, 0, 0, 0.72);
+  font-weight: normal;
+  background: #fff;
+}
+.sub-heading span {
+  border-left: 3px solid rgb(123, 123, 123);
+  display: block;
+  padding: 0px 5px;
+}
+/**
+ * No Content
+ */
+ .no-content {
+  height: 100%;
+  min-height: 100%;
+  position: relative;
+}
+.empty-icon img, .empty-icon svg{
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  user-drag: none;
+  -webkit-user-drag: none;
+}
+.icon-no-content {
+  height: 40px!important;
+  width: 40px!important;
+  fill: rgb(114, 126, 150)
+}
+
+/**
+ * Dashboard
+ */
+ .dash-g {
+  text-align: left;
+  border-bottom: 1px solid rgb(221, 221, 255);
+}
+.dash-g:last-child {
+  border: 0;
+}
+.dash-g a {
+  display: block;
+  padding: 8px 6px;
+}
+.c-1 {
+  background: rgb(75, 72, 214);
+}
+.c-2 {
+  background: rgb(24, 144, 255)
+}
+.c-3 {
+  background: rgb(232, 86, 0);
+}
+.c-4 {
+  background: #3b9;
+}
+.c-5 {
+  background: rgb(51, 51, 51);
+}
+.c-6 {
+  background: yellowgreen
+}
+.c-7 {
+  background: rgb(237, 27, 36);
+}
+.c-8 {
+  background: rgb(223, 25, 37);
+}
+
+.dashicon {
+  display: inline-block !important;
+  text-align: center;
+  vertical-align: middle;
+  fill: rgb(255, 255, 255);
+  height: 35px !important;
+  width: 35px !important;
+  padding: 6px 8px;
+  border-radius: 1rem;
+}
+.dash-label {
+  display: inline-block;
+  padding: 2px;
+  vertical-align: middle;
+}
+
+.dash-container {
+    padding: 10px 12px;
+    background: rgb(255, 255, 255);
+}
+.login-box {
+    padding: 25px 20px;
+}
+.dash-container.trans-bg {
+  background: none;
+}
+.dash-container.no-gutter {
+  padding: 0;
+}
+.breadcrumb {
+    padding: 2px 14px;
+    margin: 0 0 2px;
+}
+.api-list {
+  padding: 12px 0px;
+}
+.form-input{
+  height: 36px;
+  background: rgb(255, 255, 255) no-repeat;
+  border: 1px solid rgb(187,192,196);
+  border-radius: 2px;
+  box-shadow: inset 0 1px 3px rgb(239,240,241);
+}
+textarea.form-input {
+  height: auto;
+}
+.form-input:focus{
+  border-color: #1890FF;
+}
+.form-input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px #fff inset;
+  -webkit-text-fill-color: #333 !important;
+}
+.logo-preview {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAfElEQVQoU62QSQrAIAxFEz2DuPD+N3PCM6ipTbEUSSlCs5KQ5x8wpUStNVBKwTm9d9BagzGGd0TEe0TkN3rvRcA5x4frYIxRBKy1t+qEWGEb2Lb0FfqZgS3VWklqo5QCUns4qKu3ZUIIMjB+YYVVOuf8E7BtaYZeLb2FPgBb3KYDNU7fxgAAAABJRU5ErkJggg==");
+  background-color: #ddd;
+  background-repeat: repeat;
+  overflow: hidden;
+  padding: 4px;
+  text-align: center;
+  box-shadow: 0 0 5rem rgba(0, 0, 0, 0.52) inset;
+}
+.logo-preview img {
+  height: 100%;
+  display: block;
+  max-width: 100%
+}
+/**
+ * Footer
+ */
+ #footer {
+    text-align: center;
+    background: rgb(255, 255, 255);
+    width: 100%;
+    color: rgb(97, 94, 94);
+    font-size: 13px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#footer p {
+  margin: 0;
+  padding: 8px 10px;
+}

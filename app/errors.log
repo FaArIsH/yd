@@ -1,0 +1,5 @@
+Environment: dev
+Date: 2018-01-30 12:00:48 PM
+Message: No readable directory found at I:\wamp64\www\mi-tube/themes/mi-red/
+Source: I:\wamp64\www\mi-tube\app\drivers\Flash.php, at line 64
+

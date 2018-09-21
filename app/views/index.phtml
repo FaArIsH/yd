@@ -1,0 +1,68 @@
+<?php $this->start('content');?>
+<h3 class="heading"><span>Admin Dashboard</span></h3>
+<div class="dash-container">
+      <div class="dash-g">
+        <a href="<?=base_url('dashboard/settings')?>">
+          <svg class="icon dashicon c-1">
+            <use xlink:href="#settings" />
+          </svg> <span class="dash-label">Site Settings
+        </span></a>
+      </div>
+      <div class="dash-g">
+        <a href="<?=base_url('dashboard/api-keys')?>">
+          <svg class="icon dashicon c-2">
+            <use xlink:href="#cloud"/></svg>
+            <span class="dash-label">API Keys
+        </span>
+      </a>
+      </div>
+        <div class="dash-g">
+          <a href="<?=base_url('dashboard/permalinks')?>">
+            <svg class="icon dashicon c-3">
+              <use xlink:href="#link" />
+            </svg> <span class="dash-label">Permalinks
+          </span></a>
+        </div>
+        <div class="dash-g">
+          <a href="<?=base_url('dashboard/themes')?>">
+            <svg class="icon dashicon c-4">
+              <use xlink:href="#photo" />
+            </svg> <span class="dash-label">Theme Manager
+          </span></a>
+        </div>
+        <div class="dash-g">
+          <a href="<?=base_url('dashboard/dmca')?>">
+            <svg class="icon dashicon c-5">
+              <use xlink:href="#courtRoom"/>
+            </svg> <span class="dash-label">DMCA Manager
+          </span></a>
+        </div>
+
+        <div class="dash-g">
+          <a href="<?=base_url('dashboard/ads')?>">
+            <svg class="icon dashicon c-6">
+              <use xlink:href="#insiderHubApp"/>
+            </svg> <span class="dash-label">Advertisements
+          </span></a>
+        </div>
+        <div class="dash-g">
+          <a href="<?=base_url('dashboard/password')?>">
+            <svg class="icon dashicon c-7">
+              <use xlink:href="#permission" />
+            </svg> <span class="dash-label">Change Password
+          </span></a>
+        </div>
+        <div class="dash-g">
+          <a href="<?=base_url('dashboard/logout')?>">
+            <svg class="icon dashicon c-8">
+              <use xlink:href="#lock" />
+            </svg> <span class="dash-label">Log Out
+          </span></a>
+        </div>
+      </div>
+  </div>
+  <!-- ./container -->
+  <?php $this->end();?>
+  <?php
+  $this->extend('base');
+  ?>

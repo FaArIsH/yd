@@ -1,0 +1,19 @@
+<?php
+if (empty($start)) {
+    $start = 0;
+}
+
+if (empty($limit)) {
+    $limit = 15;
+}
+?>
+<?php if (has_recent_tags()) :?>
+    <h3 class="heading">Buzzin' around..</h3>
+    <div class="recent-tags">
+        <?php while (recent_tags($start, $limit)) :?>
+            <a class="btn btn-tags" href="<?php the_tag_permalink(); ?>">
+                <?php the_tag_name(); ?>
+            </a>
+        <?php endwhile;?>
+    </div>
+<?php endif;?>

@@ -1,0 +1,37 @@
+<?php $this->start('content');?>
+<h3 class="heading"><span>DMCA Manager</span></h3>
+<div class="dash-container">
+    <?php alert_show('error'); ?>
+    <?php alert_show('success'); ?>
+    <form method="post" action="<?=base_url('dashboard/update/dmca')?>">
+        <div class="form-group">
+            <label for="dmca_channel_ids" class="form-label">Channel IDs</label>
+            <textarea class="form-input" id="dmca_channel_ids" name="dmca_channel_ids"><?php option('dmca_channel_ids')?></textarea>
+            <p class="input-help">
+                Insert Channel IDs to block them. Separate multiple ids by comma.
+            </p>
+        </div>
+        <div class="form-group">
+            <label for="dmca_search_queries" class="form-label">Search Queries</label>
+            <textarea class="form-input" id="dmca_search_queries" name="dmca_search_queries"><?php option('dmca_search_queries')?></textarea>
+            <p class="input-help">
+                Insert search queries slug to block them. Separate multiple by comma.
+            </p>
+        </div>
+        <div class="form-group">
+            <label for="dmca_ids" class="form-label">Video IDs</label>
+            <textarea class="form-input" id="dmca_ids" name="dmca_ids"><?php option('dmca_ids')?></textarea>
+            <p class="input-help">
+                Insert Video IDs to block them. Separate multiple ids by comma.
+            </p>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-blue btn-block">Update DMCA</button>
+        </div>
+        <?=csrf_get_token_html()?>
+    </form>
+</div>
+    <?php $this->end();?>
+    <?php
+    $this->extend('base');
+    ?>

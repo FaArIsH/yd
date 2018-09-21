@@ -1,0 +1,6 @@
+<form class="navbar-form navbar-left" method="post" action="<?php search_post_url(); ?>" role="form">
+        <div class="form-group">
+          <input type="search" class="form-control" placeholder="Search video or paste video link.." name="q" value="<?php if (!is_home()) { the_search_query(); } ?>">
+        </div>
+        <button type="submit" class="btn btn-nav-search"><svg class="icon"><use xlink:href="#search"/></svg></button>
+      </form>

@@ -1,0 +1,39 @@
+<?php $this->start('content');?>
+<?php if (count($streamLinks) > 0) :?>
+    <h3 class="heading"><span>Download Links</span></h3>
+    <div class="alert alert-success">
+        Here are the download links for <b><?=$videoInfo['title']?></b>
+    </div>
+    <div class="ads ads-download">
+        <?php adcode_download(); ?>
+    </div>
+    <ul class="download-links">
+        <?php foreach ($streamLinks as $v) : ?>
+            <li>
+                <a href="<?=$v->getLink()?>">
+                    <?=strtoupper($v->getExtension())?> -
+                    <?php if ($v->isAudioOnly()) : ?>
+                        <?=$v->getAudioBitrate()?>
+                        <span style="color:orange"> [AUDIO ONLY]</span>
+                    <?php elseif ($v->isVideoOnly()) : ?>
+                        <?=$v->getHeight()?>P
+                        <span style="color:blue"> [VIDEO ONLY]</span>
+                    <?php elseif ($v->hasBoth()) : ?>
+                        <?=$v->getHeight()?>P
+                        <span style="color:green"> [FULL VIDEO]</span>
+                    <?php endif;?>
+                    - <?php echo $v->getSize(); ?>
+                </a>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+<?php else :?>
+    <div class="alert alert-warning">
+        Failed to fetch download links for the video. May be it has been removed or never existed. Sometimes it can happen because of copyright issues. Please try reloading the page.
+    </div>
+<?php endif;?>
+<?php $this->end();?>
+<?php
+// Extends the base template
+$this->extend('base');
+?>

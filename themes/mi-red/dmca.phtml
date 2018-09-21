@@ -1,0 +1,41 @@
+<?php
+// Set page title
+set_page_title('DMCA Blocked Content!');
+?>
+<?php $this->start('content');?>
+<div class="row">
+    <div class="col-md-9 col-sm-9">
+        <div class="empty no-content">
+          <div class="empty-icon">
+            <img src="<?=theme_url('img/noresults.png')?>" alt="No results" noselect="true">
+        </div>
+        <p class="empty-title h4">Blocked Content</p>
+        <p class="empty-subtitle">
+            <?php if (is_channel()) : ?>
+                Sorry, all videos of the channel <b><?=$name?></b> is removed due to legal DMCA removal notice.
+            <?php elseif (is_single()) : ?>
+                Sorry, the video <b><?=$name?></b> is removed due to legal DMCA removal notice.
+            <?php elseif (is_search()) : ?>
+                Sorry, the search query <b><?=$name?></b> is blocked by site administrator.
+            <?php else:?>
+                Sorry the content you requested was removed due to legal DMCA removal notice.
+            <?php endif;?>
+        </p>
+        <div class="empty-action">
+            <a class="btn btn-red-outline" href="<?=base_url()?>">homepage</a>
+        </div>
+    </div>
+</div>
+<!-- ./col-md-9 -->
+
+<div class="col-md-3 col-sm-3">
+    <?php $this->insert('partials/menu');?>
+    <?php $this->insert('partials/recent-tags');?>
+</div>
+<!-- ./col-md-3 -->
+</div>
+<?php $this->end(); ?>
+<?php
+// Extends the base template
+$this->extend('base', ['bodyClass' => 'category']);
+?>

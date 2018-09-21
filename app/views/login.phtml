@@ -1,0 +1,25 @@
+<?php $this->start('content');?>
+<h3 class="heading"><span>Sign In to your account.</span></h3>
+<div class="login-box">
+    <?php alert_show('error'); ?>
+    <?php alert_show('success'); ?>
+    <form method="post" action="<?php login_url(); ?>">
+        <div class="form-group">
+          <label class="form-label" for="username">Username</label>
+            <input required maxlength="40" name="username" class="form-input username" type="text" placeholder="Username">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="password">Password</label>
+          <input required name="password" maxlength="120" class="form-input password" type="password" placeholder="Password">
+      </div>
+      <div class="form-group">
+          <button class="btn btn-blue btn-block">Sign In</button>
+      </div>
+      <?=csrf_get_token_html()?>
+  </form>
+</div>
+<?php $this->end();?>
+<?php
+// This template extends the base template
+$this->extend('base');
+?>

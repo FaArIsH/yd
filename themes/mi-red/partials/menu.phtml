@@ -1,0 +1,11 @@
+<div class="sidebar-menu">
+    <h3 class="heading">Categories</h3>
+<ul>
+    <li class="tab-item<?php if (is_home()) : ?> active<?php endif;?>">
+        <a href="<?=base_url()?>">Home</a>
+    </li>
+    <?php
+    mi_list_categories(['before' => '<li class="tab-item%active%">', 'after' => '</li>']);
+    ?>
+</ul>
+</div>

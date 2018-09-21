@@ -1,0 +1,38 @@
+<!doctype html>
+<html class="no-js" lang="en" prefix="og: http://ogp.me/ns#" <?php html_schema(); ?>>
+<head>
+    <?php mi_head(); ?>
+    <link rel="shortcut icon" type="image/x-favicon" href="<?=base_url('favicon.ico')?>">
+    <link rel="stylesheet" type="text/css" href="<?=theme_url('css/bootstrap.min.css')?>">
+    <link rel="stylesheet" type="text/css" href="<?=theme_url('css/styles.min.css')?>">
+</head>
+
+<?php
+if (!isset($bodyClass)) {
+    $bodyClass = 'default';
+}
+?>
+<body class="<?=filter_html_escape($bodyClass)?>">
+    <?php
+    // Load header
+    $this->insert('partials/svg-sprite');
+    $this->insert('partials/header');
+    ?>
+    <!-- Page Content -->
+    <div id="content">
+        <div class="ads ads-header">
+            <?php adcode_header(); ?>
+        </div>
+        <?php
+        $this->section('content');
+        ?>
+    </div>
+
+    <?php
+
+
+    // Insert Footer
+    $this->insert('partials/footer');
+    ?>
+</body>
+</html>

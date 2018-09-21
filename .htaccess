@@ -1,0 +1,23 @@
+## Disable Index Browsing
+Options -Indexes
+## Disable Multi Views
+Options -MultiViews
+## Set default character set to UTF-8
+AddDefaultCharset UTF-8
+
+## Start the Rewriting engine
+RewriteEngine On
+
+## Not needed, maybe useful when it's in a subdirectory ( localhost specially )
+## RewriteBase /
+
+## Remove those fuckin' trailing slashes -_-
+## To make it work in localhost, make sure you have set the RewriteBase directive from above
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)/$  /$1 [L,R=301]
+
+## Route all requests except the symlinks, files, directories to index.php
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteRule . index.php [QSA,L]

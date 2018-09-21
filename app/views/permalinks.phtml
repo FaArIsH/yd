@@ -1,0 +1,47 @@
+<?php $this->start('content');?>
+<h3 class="heading"><span>Permalink Settings</span></h3>
+<div class="dash-container">
+    <?php alert_show('error'); ?>
+    <?php alert_show('success'); ?>
+    <form method="post" action="<?=base_url('dashboard/update/permalinks')?>">
+        <div class="form-group">
+            <label class="form-label" for="permalink_search">Search Page Permalink</label>
+            <input required name="permalink_search" value="<?php option('permalink_search'); ?>" class="form-input" type="text" id="permalink_search" maxlength="80">
+            <p class="input-help">
+                Available parameters:<br> <code>%query%</code> - The search query. <span class="text-error">(Required)</span>
+            </p>
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="permalink_category">Category Permalink</label>
+            <input required name="permalink_category" value="<?php option('permalink_category'); ?>" class="form-input" type="text" id="permalink_category" maxlength="80">
+            <p class="input-help">
+                Available parameters:<br> <code>%id%</code> - The category ID <span class="text-error">(Required)</span>.<br><code>%slug%</code> - The slug of category name.
+            </p>
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="permalink_channel">Channel Permalink</label>
+            <input required name="permalink_channel" value="<?php option('permalink_channel'); ?>" class="form-input" type="text" id="permalink_channel" maxlength="80">
+            <p class="input-help">
+                Available parameters:<br> <code>%id%</code> - The channel ID <span class="text-error">(Required)</span>.<br><code>%slug%</code> - The slug of channel name.
+            </p>
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="permalink_single">Single Video Permalink</label>
+            <input required name="permalink_single" value="<?php option('permalink_single'); ?>" class="form-input" type="text" id="permalink_single" maxlength="80">
+            <p class="input-help">
+                Available parameters:<br> <code>%id%</code> - The video ID <span class="text-error">(Required)</span>.<br><code>%slug%</code> - The slug of video title.
+            </p>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-blue btn-block" type="submit">Update Permalinks</button>
+      </div>
+      <?=csrf_get_token_html()?>
+  </form>
+  <div class="toast toast-warning">
+      <strong>Please Note:</strong> Changing the permalinks means your old links will not work anymore. It may affect your SEO. Also make sure the permalinks doesn't collide with other URLs of the site.
+  </div>
+</div>
+<?php $this->end();?>
+<?php
+$this->extend('base');
+?>

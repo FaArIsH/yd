@@ -1,0 +1,33 @@
+<footer id="footer"><div class="nav-container">
+    <p class="copyright">
+        &copy; <?=date('Y')?> <?php siteinfo('name'); ?>. All rights are reserved.
+    </p>
+    <nav class="footer-menu">
+            <ul>
+                <li>
+                    <a href="<?=base_url('page/contact')?>">Contact</a>
+                </li>
+                <li>
+                    <a href="<?=base_url('page/about')?>">About</a>
+                </li>
+                <li>
+                    <a href="<?=base_url('page/disclaimer')?>">Disclaimer</a>
+                </li>
+                <li>
+                    <a href="<?=base_url('dashboard')?>" rel="nofollow">Admin</a>
+                </li>
+            </ul>
+
+    </nav>
+</div>
+</footer>
+<!-- Load jQuery -->
+<script src="<?=theme_url('js/jquery.min.js')?>"></script>
+<script src="<?=theme_url('js/bootstrap.min.js')?>"></script>
+
+<script>
+   $(document).ready(function($) {
+    // Add js class to html
+    $("html").removeClass('no-js').addClass('js');
+});
+</script>

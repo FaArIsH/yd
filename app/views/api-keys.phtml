@@ -1,0 +1,48 @@
+<?php $this->start('content');?>
+<h3 class="heading"><span>API Manager</span></h3>
+<div class="dash-container">
+    <?php alert_show('error'); ?>
+    <?php alert_show('success'); ?>
+    <form method="post" action="<?=base_url('dashboard/addApi')?>">
+        <div class="form-group">
+            <label for="api_key" class="form-label">YouTube API v3 Key</label>
+            <input type="text" name="api_key" id="api_key" class="form-input" placeholder="YouTube API v3 Key" required>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-blue btn-block">Add API</button>
+        </div>
+        <?=csrf_get_token_html()?>
+    </form>
+</div>
+<h3 class="heading"><span>Manage API Keys</span></h3>
+<div class="dash-container">
+    <?php if (!empty($api_keys)) : ?>
+
+<h4 class="sub-heading"><span>Page <?=$page?>, Showing <?=$offset?>-<?=$offset+$items_per_page?> of total <?=$total?> items.</span></h4>
+    <?php foreach ($api_keys as $api) : ?>
+        <div class="api-list">
+            <div class="input-group">
+                <input type="text" class="form-input" value="<?=filter_html_escape($api['api_key'])?>" readonly>
+                <a href="<?=base_url('dashboard/delApi/' . $api['id'])?>?<?=csrf_get_query()?>" class="btn btn-blue-outline input-group-btn adjust-btn">
+                    Delete
+                </a>
+            </div></div>
+        <?php endforeach; ?>
+        <?=$pagination?>
+    <?php else: ?>
+
+    <div class="empty no-content">
+      <div class="empty-icon">
+        <svg class="icon-no-content">
+            <use xlink:href="#cloud"/></svg>
+    </div>
+    <p class="empty-title h6">Nothing found!</p>
+    <p class="empty-subtitle">Sorry you haven't added any API key yet. You need to add at least one API key to get your site up and running.</p>
+</div>
+    <?php endif;?>
+
+</div>
+    <?php $this->end();?>
+    <?php
+    $this->extend('base');
+    ?>

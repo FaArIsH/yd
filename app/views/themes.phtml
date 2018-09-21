@@ -1,0 +1,44 @@
+<?php $this->start('content');?>
+<h3 class="heading"><span>Themes Manager</span></h3>
+<div class="dash-container">
+    <?php alert_show('error'); ?>
+    <?php alert_show('success'); ?>
+    <form method="post" action="<?=base_url('dashboard/update/themes')?>" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="theme_desktop" class="form-label">Desktop Theme</label>
+            <select id="theme_desktop" name="theme_desktop" class="form-input">
+                <?php mi_theme_selector('theme_desktop'); ?>
+            </select>
+            <p class="input-help">
+                The theme to use for desktop browsers.
+            </p>
+        </div>
+        <div class="form-group">
+            <label for="theme_mobile" class="form-label">Mobile Theme</label>
+            <select id="theme_mobile" name="theme_mobile" class="form-input">
+                <?php mi_theme_selector('theme_mobile'); ?>
+            </select>
+            <p class="input-help">
+                The theme to use for mobile/tablet browsers.
+            </p>
+        </div>
+        <div class="form-group">
+            <label for="theme_logo" class="form-label">Theme Logo</label>
+            <?php if (get_option('theme_logo')):?>
+                <p class="logo-preview"><img src="<?php theme_logo_url(); ?>" alt="Logo Image not Found"></p>
+            <?php endif;?>
+            <input type="file" name="theme_logo" id="theme_logo" class="form-input">
+            <p class="input-help">
+                The logo to be used by themes.
+            </p>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-blue btn-block">Update</button>
+        </div>
+        <?=csrf_get_token_html()?>
+    </form>
+</div>
+<?php $this->end();?>
+<?php
+$this->extend('base');
+?>

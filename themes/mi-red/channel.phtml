@@ -1,0 +1,37 @@
+<?php $this->start('content');?>
+<?php if (has_videos()) : ?>
+    <div class="videos-block">
+        <h3 class="heading"><span>All videos by <?php channelinfo('title'); ?></span></h3>
+        <h4 class="sub-heading"><span>Found <?php the_result_count(); ?> videos</span></h4>
+        <div class="video-listing">
+            <div class="row">
+                <?php while (videos()) : ?>
+                    <div class="col-md-6 col-sm-6">
+                        <?php $this->insert('partials/loop'); ?>
+                    </div>
+                <?php endwhile;?>
+            </div>
+            <?php the_pagination('<ul class="video-pages">', "</ul>"); ?>
+        </div>
+
+    </div>
+    <!-- ./videos-block -->
+<?php else : ?>
+
+    <div class="empty no-content">
+      <div class="empty-icon">
+        <img src="<?=theme_url('img/noresults.png')?>" alt="No results" noselect="true">
+    </div>
+    <p class="empty-title h5">Nothing found!</p>
+    <p class="empty-subtitle">Sorry the channel <strong><?php channelinfo('title'); ?></strong> has no videos yet. If you are seeing this more often and think it's an internal problem, please contact the site administrator.</p>
+    <div class="empty-action">
+        <a class="btn btn-blue-outline" href="<?=base_url()?>">Home</a>
+        <a class="btn btn-blue-outline" href="javascript:location.reload();" rel="nofollow">Reload</a>
+    </div>
+</div>
+<?php endif;?>
+<?php $this->end(); ?>
+<?php
+// Extends the base template
+$this->extend('base', ['bodyClass' => 'channel']);
+?>

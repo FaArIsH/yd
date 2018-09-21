@@ -1,0 +1,13 @@
+<?php
+$current_url = filter_html_escape(get_current_url(), false);
+?>
+<a class="btn btn-share btn-facebook" href="https://facebook.com/sharer/sharer.php?u=<?=$current_url?>" target="_blank" aria-label="Share on Facebook">
+  <svg class="icon"><use xlink:href="#facebook"/></svg>
+</a>
+<a class="btn btn-share btn-twitter" href="https://twitter.com/intent/tweet/?text=<?=urlencode(get_the_title())?>&amp;url=<?=$current_url?>" target="_blank" aria-label="Share on Twitter">
+  <svg class="icon"><use xlink:href="#twitter"/></svg>
+</a>
+
+<a class="btn btn-share btn-wapp" ref="whatsapp://send?text=<?=$current_url?>" data-action="share/whatsapp/share">
+  <svg class="icon"><use xlink:href="#wapp"/></svg>
+</a>

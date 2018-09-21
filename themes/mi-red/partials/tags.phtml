@@ -1,0 +1,10 @@
+<?php if (!empty(get_the_tags())) : ?>
+<div class="info-container">
+    <h4 class="heading">Explore more about..</h4>
+    <div class="info-content tags">
+        <?php foreach (get_the_tags() as $tag):?>
+            <a class="btn-tags" href="<?php the_search_permalink($tag) ?>" title="<?=filter_html_escape($tag)?>"><?=filter_html_escape(trim_words($tag, 4))?></a>
+        <?php endforeach;?>
+    </div>
+</div>
+<?php endif;?>

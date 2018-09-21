@@ -1,0 +1,21 @@
+<?php
+$this->start('content');
+?>
+<div class="empty no-content">
+  <div class="empty-icon">
+    <img src="<?=theme_url('img/noresults.png')?>" alt="No results" noselect="true">
+  </div>
+  <p class="empty-title h3">Nothing found!</p>
+  <p class="empty-subtitle">The page you have requested was not found on this server. It may have been deleted, or never existed. No black magic here!</p>
+  <div class="empty-action">
+    <a class="btn btn-blue-outline" href="<?=base_url()?>">homepage</a>
+  </div>
+</div>
+
+<?php
+$this->end();
+?>
+<?php
+// Extends the base template
+$this->extend('base');
+?>
